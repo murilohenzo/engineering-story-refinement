@@ -12,7 +12,11 @@ Abra este repositório e peça, por exemplo, “Use $engineering-story-refinemen
 
 Abra o [prompt de refinamento](.github/prompts/refinar-historia.prompt.md), copie o texto a partir de “Refinar uma história de engenharia” para o Copilot Chat e acrescente o pedido ou o card existente. O texto é autocontido e também pode ser usado fora deste repositório. Em uma sessão **Local** do VS Code, com o projeto aberto, o mesmo arquivo pode ser invocado como `/refinar-historia`. A documentação do VS Code descreve a disponibilidade do comando por tipo de sessão. [Prompt files no VS Code](https://code.visualstudio.com/docs/agent-customization/prompt-files)
 
-Por exemplo, envie “Hoje Contas a Receber confere boletos vencidos manualmente e às vezes envia lembretes repetidos. Crie um rascunho e indique o que precisamos decidir sobre a régua”. A resposta deve propor o problema e o aceite para duplicidade e deixar a cadência em aberto. Para comparar, a [história de boletos](example/01-cobranca-de-boletos-em-atraso.md) mostra o card depois de o time escolher os dias de envio.
+Para experimentar, acrescente ao texto copiado apenas o relato do problema:
+
+> Hoje Contas a Receber confere boletos vencidos manualmente e às vezes envia lembretes repetidos.
+
+Uma primeira pergunta útil seria “Quando vocês dizem que o lembrete está repetido, são dois envios da mesma etapa ou uma segunda cobrança prevista pela régua?”. Se o time responder “dois envios da mesma etapa”, a próxima pergunta pode ser “O que identifica essa etapa para vocês e em qual situação um novo lembrete é legítimo?”. O Copilot deve aguardar as respostas e usá-las nos critérios de aceite. A [história de boletos](example/01-cobranca-de-boletos-em-atraso.md) mostra um card preenchido após essas decisões. Para receber logo uma versão preliminar, peça “gere um rascunho agora com o que já sabemos”.
 
 Ao alterar a ficha curta, a triagem ou os critérios de revisão da skill, confira também o prompt independente para manter as duas formas de uso alinhadas.
 
