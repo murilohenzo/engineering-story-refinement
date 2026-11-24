@@ -20,6 +20,16 @@ Uma primeira pergunta útil seria “Quando vocês dizem que o lembrete está re
 
 Ao alterar a ficha curta, a triagem ou os critérios de revisão da skill, confira também o prompt independente para manter as duas formas de uso alinhadas.
 
+#### Como avaliar a conversa
+
+O Copilot percorre problema, escopo, critérios de aceite (CAs), condições para iniciar (DoR) e condições para concluir (DoD). A cada resposta, ele explica o que já ficou definido e investiga a lacuna que mais afeta a etapa. No caso dos boletos, três respostas ajudam a conferir esse comportamento:
+
+- **CA** — Diante de “o lembrete só pode sair uma vez”, o Copilot deve esclarecer o que identifica uma repetição e qual resultado observar durante um reprocessamento.
+- **DoR** — Diante de “a consulta ao provedor ainda não está disponível”, deve perguntar qual etapa depende da consulta e se o time consegue iniciar alguma parte da entrega. O parecer deve indicar o alcance do impedimento.
+- **DoD** — Diante de “QA vai testar”, deve perguntar qual teste comprova o CA, onde ficará o registro e quem validará o resultado. O teste fica planejado até existir evidência de execução.
+
+Ao final, o card reúne a ficha curta, o parecer de prontidão e o plano de comprovação da entrega.
+
 ### Outros pedidos
 
 - Pedido novo — “O painel apresenta dados antigos na reunião da manhã. Ajude a definir a melhoria.”

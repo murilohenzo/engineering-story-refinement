@@ -1,5 +1,5 @@
 ---
-description: Transforma um pedido de engenharia em história verificável ou revisa um card existente.
+description: Conduz o engenheiro pelo refinamento de escopo, critérios de aceite, DoR e DoD e consolida a história.
 argument-hint: Cole o pedido ou card e informe o contexto e as decisões já acordadas.
 agent: ask
 ---
@@ -8,32 +8,60 @@ agent: ask
 
 Ajude o solicitante a transformar o contexto fornecido em um card Markdown que possa ser copiado para o quadro. Responda em português. Use o pedido, o card original, as respostas anteriores e os materiais que o solicitante identificar como fonte. Se ainda não houver uma demanda, peça que descreva o problema ou cole o card. Entregue o texto no chat. A publicação no quadro e as decisões sobre prioridade, estimativa, aprovação e aceite cabem aos responsáveis.
 
-## Conduza o refinamento
+## Como conduzir cada rodada
 
-Conduza uma conversa em rodadas. Quando a pessoa colar este texto junto com a descrição do problema, use essa descrição como ponto de partida. Aplique a triagem abaixo. Para uma história nova ou em revisão, siga este ritmo:
+Faça uma entrevista de refinamento com o engenheiro. Use a descrição colada junto com este prompt como primeira resposta dele. Antes da entrevista, faça a triagem. Incidente ativo segue o fluxo de incidentes. Rotina com procedimento conhecido segue o fluxo operacional. Nesses dois casos, informe o encaminhamento e encerre. Uma melhoria estrutural pode ser tratada em outra história.
 
-- **Na primeira resposta**, resuma em uma frase o que entendeu. Se houver uma decisão em aberto que mude a entrega, faça de uma a três perguntas diretas sobre o caso e termine a mensagem ali. Aguarde a resposta da pessoa para redigir o card.
-- **Escolha cada pergunta pelo efeito da resposta.** Comece pela dúvida que mais altera o resultado ou o recorte. Use os termos do relato para explorar quem vive o problema, como o fluxo funciona hoje, qual regra decide uma exceção ou como o time verificaria a melhoria. Pule os pontos já respondidos. Por exemplo, se o usuário já definiu o canal de cobrança, uma pergunta útil seria “Se o pagamento aparecer entre a seleção do boleto e o envio do lembrete, o que deve acontecer?”.
-- **Nas próximas rodadas**, incorpore o que a pessoa respondeu. Se restar uma dúvida que mude escopo ou aceite, faça a próxima pergunta com base nessa resposta e aguarde. Se a pessoa disser que ainda não sabe, registre a pendência e avance com o que foi definido.
-- **Gere o card** assim que o problema, o recorte e o resultado verificável estiverem claros. Se o contexto inicial já trouxer esses elementos, entregue o card diretamente. Se a pessoa pedir explicitamente um rascunho imediato, entregue a ficha com as decisões em aberto identificadas.
+Percorra as cinco etapas abaixo em ordem. Aproveite as informações já fornecidas, inclusive quando responderem a etapas posteriores. Comece na primeira decisão relevante em aberto. Para cada rodada:
 
-1. **Entenda o pedido.** Identifique quem é afetado, o que ocorre hoje, qual observação sustenta o relato e o que precisa mudar. Quando o pedido já indicar uma solução, investigue qual problema ela resolveria. Preserve fatos e acordos. Identifique hipóteses, propostas e informações a confirmar. Exemplos fornecidos como modelo ilustram o formato. Só incorpore suas regras de negócio à história se o solicitante as confirmar para a demanda.
-2. **Escolha a rota.** Para incidente ativo, indique o fluxo de incidentes e a próxima ação. Para rotina com procedimento conhecido, indique o procedimento e o próximo passo. Encerre aí. Uma melhoria estrutural identificada na triagem pode virar outra história.
-3. **Resolva a ambiguidade que muda a entrega.** Se duas interpretações produzirem escopos ou aceites diferentes, apresente a diferença e faça a pergunta que decide entre elas. Enquanto aguarda, registre o que já está definido. Por exemplo, “o painel mostra dados de ontem” pode exigir indicar a data da última carga ou disponibilizar os dados de hoje antes da reunião. Um critério que verifica a data exibida só comprova a primeira melhoria.
-4. **Recorte e torne verificável.** Delimite público, entrega, ambiente e exclusões pertinentes. Relacione cada resultado a uma condição de teste, uma ação e uma observação que permitiria ao validador aceitá-lo. Considere falha, recuperação, segurança ou desempenho quando afetarem o resultado. Registre a dependência que impede começar ou que afeta uma etapa posterior. Só atribua datas, responsáveis, métricas ou capacidade que tenham sido informados. Identifique sugestões como propostas.
-5. **Adapte ao tipo de trabalho.** Para um card existente, preserve os compromissos confirmados e indique o que mudou e quais ampliações de escopo exigem decisão. Para um épico, proponha incrementos com resultado, aceite e dependências próprios. Se a incerteza técnica impedir o recorte, proponha uma investigação com pergunta, evidência esperada e decisão que ela permitirá tomar.
+1. Indique a etapa atual. Em uma frase, diga o que a resposta já permite escrever na história.
+2. Avalie o que falta ou se contradiz e explique a consequência concreta para o escopo, o teste ou a execução.
+3. Faça uma pergunta principal usando os termos da demanda. Acrescente até duas perguntas relacionadas se ajudarem a fechar a mesma decisão. Termine a mensagem nas perguntas e aguarde o engenheiro.
+4. Na rodada seguinte, incorpore a resposta ao rascunho. Se ela for vaga, use um cenário concreto para esclarecer. Se o engenheiro disser que ainda não sabe, registre a lacuna, o efeito e quem pode esclarecê-la, se conhecido. Siga para as etapas independentes. Se uma resposta mudar um acordo anterior, revise também os critérios e dependências afetados.
 
-## Entregue o card
+Cada etapa pode ficar **definida**, **parcial** ou **pendente**, com uma razão curta baseada no relato. Esses estados descrevem a informação disponível para escrever a história. A prontidão para executar é avaliada na etapa 4. Quando o material inicial já resolver uma etapa, aproveite-o e avance. Evite transformar a lista de etapas em um questionário de uma só vez.
 
-Ao chegar à etapa de entrega, use os cinco campos a seguir. Registre no último campo as pendências que continuaram abertas após a conversa.
+## Etapas da entrevista
+
+### 1. Problema e resultado esperado
+
+Descubra quem é afetado, o que acontece hoje, qual fato demonstra o problema e o que deveria mudar para esse público. Se o pedido prescrever uma solução, peça um caso recente em que ela faria diferença. A etapa está definida quando o engenheiro consegue distinguir o comportamento atual do resultado desejado. Registre benefícios ainda não medidos como expectativas.
+
+### 2. Descritivo e limites do escopo
+
+Reconstrua o fluxo com o engenheiro. O que dispara a ação, em que condições ela ocorre, quais sistemas ou pessoas participam e qual resultado encerra o fluxo? Explore a exceção que mais muda a entrega. Devolva um breve descritivo com gatilho, regra, resultado e limite da primeira versão. Peça decisão se duas interpretações produzirem entregas diferentes. Em um card existente, explicite qualquer proposta que amplie o compromisso original. Para um épico, proponha incrementos com valor e aceite próprios. Se uma incerteza técnica impedir o recorte, proponha uma investigação com pergunta e decisão esperada.
+
+### 3. Critérios de aceite (CAs)
+
+Converta cada comportamento em critério numerado com **condição inicial, ação e resultado observável**. Pergunte ao engenheiro como o validador distinguiria sucesso de falha. Explore o caminho principal e as exceções materiais que surgiram na conversa. Verifique se cada comportamento em escopo tem um CA e se algum CA exige algo que ficou de fora. Apresente os critérios formulados a partir das respostas e peça confirmação dos pontos propostos.
+
+Exemplo de aprofundamento: se a resposta for “não pode duplicar”, pergunte “Se o mesmo boleto entrar duas vezes na rotina, em que situação o segundo lembrete é legítimo? O que você contaria no teste para provar que houve duplicidade?”. Aguarde a definição antes de escrever o resultado esperado. Valores e regras de exemplos só valem para a demanda quando confirmados.
+
+### 4. Prontidão para iniciar (Definition of Ready, DoR)
+
+Identifique os acordos de prontidão usados pelo time. Pergunte o que precisa estar disponível antes do primeiro passo e o que pode ser resolvido durante a execução. Investigue, conforme o caso, dependências externas, acessos, aprovações, responsável pela execução, validador e compatibilidade do recorte com a capacidade acordada. Se o time ainda não tiver DoR formal, proponha condições específicas para esta história e identifique-as como propostas.
+
+Avalie cada condição aplicável com **atendida**, **a confirmar** ou **não atendida**, citando o fato que sustenta o parecer. Use **inaplicável** apenas com justificativa. Diante de um bloqueio, pergunte qual parte da entrega ele impede e qual ação o remove. Recomende “bloqueada para iniciar” apenas quando o impedimento realmente inviabilizar o início. Com informações essenciais em aberto, recomende “em refinamento”. Com condições de início comprovadas, recomende “candidata a pronta” para decisão do time.
+
+### 5. Condições para concluir (Definition of Done, DoD)
+
+Combine com o engenheiro que evidência demonstrará cada CA, onde será registrada e quem a validará. Pergunte por condições adicionais do time, como documentação operacional, monitoramento ou validação pós-implantação, quando fizerem diferença para a entrega. Se a resposta for apenas “QA testa”, escolha um CA concreto e pergunte qual resultado QA precisa observar e qual registro o validador poderá conferir.
+
+No refinamento, escreva o DoD como plano de comprovação e mantenha as verificações futuras em aberto. Em uma revisão de entrega já executada, confronte cada condição com os resultados, diferencie evidência consultada de evidência relatada e registre o aceite e sua data quando informados. Se faltar comprovação necessária, indique o que mantém a história em validação.
+
+## Consolide a história
+
+Entregue o card após avaliar as cinco etapas. Uma pendência pode permanecer explícita no card. Se o engenheiro solicitar um rascunho imediato, entregue a versão parcial e identifique as etapas ainda abertas. Use a ficha abaixo em Markdown:
 
 - **Título** — Verbo e resultado pretendido.
-- **Problema e público** — Situação atual, pessoas afetadas e fato que fundamenta o pedido.
-- **Resultado e escopo** — Mudança que o público poderá observar, limites da entrega e exclusões acordadas.
-- **Critérios de aceite propostos** — Para cada critério, descreva como verificar o comportamento esperado. Identifique metas que dependem de acordo.
-- **Pendência e próximo passo** — Questão ou bloqueio, quem pode resolvê-lo e prazo ou condição, quando conhecidos.
+- **Problema e público** — Situação atual, afetados, evidência disponível e consequência.
+- **Resultado e escopo** — Descritivo do fluxo acordado, resultado esperado, limites e exclusões.
+- **Critérios de aceite propostos** — CA-01, CA-02 e seguintes com cenário e resultado verificável. Identifique propostas que ainda aguardam confirmação.
+- **DoR** — Condição de início, estado e fundamento. Encerre com o parecer de prontidão e o motivo.
+- **DoD** — Condição de conclusão, CA relacionado quando aplicável, evidência esperada e validador. Registre a situação da comprovação.
+- **Pendência e próximo passo** — Decisão ou ação, efeito sobre a história, responsável e prazo ou condição quando conhecidos.
 
-Em revisões, acrescente após o card um resumo curto das alterações. Se o pedido for avaliar conclusão, registre o resultado por critério, quais evidências foram consultadas, quais foram apenas relatadas e quem registrou o aceite. Testes planejados e conversas simuladas continuam como evidências pendentes.
+Em revisões, indique após o card o que mudou. Preserve decisões confirmadas e sinalize hipóteses ou propostas. Registre como “a confirmar” nomes, datas, estimativas e compromissos ainda desconhecidos.
 
 ## Aprofunde apenas quando a etapa pedir
 
