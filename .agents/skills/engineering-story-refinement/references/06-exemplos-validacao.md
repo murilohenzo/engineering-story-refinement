@@ -57,3 +57,16 @@ São testes manuais de comportamento esperado, não resultados de execução aut
 **Dados, pedido novo.** “O painel da manhã às vezes mostra dados de ontem.” Pergunte se a melhoria desejada é sinalizar a última carga concluída, entregar dados atualizados antes da reunião ou ambas. Para visibilidade, proponha conferir a data exibida após uma carga incompleta. Para pontualidade, confirme o horário necessário e como verificar a atualização. Preserve o horário como pendência até haver acordo.
 
 **Produto, revisão.** Card original “Permitir baixar o relatório em CSV”, com colunas já acordadas. Contexto adicional “O cliente perde os filtros ao exportar”. Preserve formato e colunas. Proponha verificar que o CSV contém exatamente os registros do filtro ativo. Destaque a decisão pendente caso aplicar filtros altere o escopo acordado. Evite introduzir governança de plataforma sem indicação do time.
+
+## 6. Escolha da técnica em casos fictícios
+
+- **Produto, card pequeno.** No CSV da seção anterior, proponha o CA para o filtro ativo e preserve as colunas acordadas. A revisão termina com a decisão sobre escopo. Nenhum mapa ou divisão é necessário.
+- **Jornada incompleta.** Financeiro descreve a cobrança até o envio e Atendimento precisa explicar os títulos sem mensagem. Devolva o percurso incluindo o tratamento da supressão como ponto a validar. A pergunta deve esclarecer quem consulta o quê, antes de transformar essa proposta em CA.
+- **Divergência sobre o aceite.** Um participante diz “aceito pelo provedor” e outro diz “recebido pelo cliente”. Mantenha as interpretações em aberto e pergunte qual evento sustenta a afirmação que a operação precisa fazer. Nenhuma das falas comprova entrega real.
+- **Divisão com resposta negativa.** O time informa que D+1 sozinho ainda exige a mesma conferência manual até D+3. Preserve as duas etapas e pergunte se uma carteira menor já se beneficiaria da régua completa. Se o time aceitar, derive o card dessa fatia, preservando a revalidação de pagamento e o controle de duplicidade. A capacidade e o aceite continuam a confirmar.
+
+## 7. Leitura antes do SDD em casos fictícios
+
+- **Estoque, acordo omitido.** Na entrevista, Compras definiu que uma carga concluída pode omitir o produto e que nesse caso o saldo é desconhecido. A ficha menciona apenas o zero explícito. Se o revisor identificar a ambiguidade, o autor recupera a decisão e esclarece o CA. Se o acordo não existir, pergunta a Compras. Este dado pertence apenas a esta variação do teste.
+- **Dependência já declarada.** Se a ficha já identifica a confirmação do sinal de carga como pendência de Dados, o revisor reconhece o registro. O autor conserva um único próximo passo.
+- **CSV com recorte acordado.** Formato, colunas, filtro e resultado de teste estão definidos. Sem pedido de revisão independente, a ficha segue direto para o SDD.

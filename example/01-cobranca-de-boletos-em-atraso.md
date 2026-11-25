@@ -6,6 +6,8 @@
 
 **Resultado e escopo** — Automatizar seleção, envio por e-mail e consulta do resultado por boleto e etapa para a carteira piloto. A rotina consulta a carteira diariamente às 09h no fuso de São Paulo. D é a data de vencimento e as etapas contam dias corridos. O envio exige cobrança habilitada, contato de e-mail habilitado e situação em aberto confirmada na fonte financeira imediatamente antes do disparo. Usar o modelo de mensagem acordado com o time. Editor de réguas, outros canais, renegociação e emissão de segunda via ficam para histórias próprias.
 
+Espera-se reduzir os lembretes repetidos e as cobranças enviadas após um pagamento já registrado. Para observar esse ganho no piloto, Contas a Receber pode comparar as ocorrências por boleto e etapa com as registradas no processo manual, se esse histórico estiver disponível.
+
 **Critérios de aceite propostos**
 
 | ID | Situação | Resultado observável |

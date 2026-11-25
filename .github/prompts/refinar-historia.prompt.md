@@ -55,7 +55,7 @@ Entregue o card após avaliar as cinco etapas. Uma pendência pode permanecer ex
 
 - **Título** — Verbo e resultado pretendido.
 - **Problema e público** — Situação atual, afetados, evidência disponível e consequência.
-- **Resultado e escopo** — Descritivo do fluxo acordado, resultado esperado, limites e exclusões.
+- **Resultado e escopo** — Descreva o fluxo acordado e seus limites. Explique como a solução responde ao problema, qual ganho o público espera perceber e como esse ganho poderia ser observado no uso. Identifique benefícios ainda não medidos como expectativas.
 - **Critérios de aceite propostos** — CA-01, CA-02 e seguintes com cenário e resultado verificável. Identifique propostas que ainda aguardam confirmação.
 - **DoR** — Condição de início, estado e fundamento. Encerre com o parecer de prontidão e o motivo.
 - **DoD** — Condição de conclusão, CA relacionado quando aplicável, evidência esperada e validador. Registre a situação da comprovação.

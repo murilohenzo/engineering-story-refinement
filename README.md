@@ -2,13 +2,29 @@
 
 A skill transforma um pedido em história verificável ou melhora um card existente. O fluxo comum atende diferentes engenharias. As referências de plataforma preservam o guia do time para operação, capacidade, GMUD, prontidão e aceite.
 
-## Usar no Codex
+## Refinar com a skill
+
+O fluxo compartilhado fica na [skill de refinamento de engenharia](.agents/skills/engineering-story-refinement/SKILL.md). Para conduzir a entrevista no Cursor, Antigravity ou outro agente, disponibilize a pasta da skill com suas referências pelo mecanismo aceito no seu ambiente. Quando o projeto já estiver aberto no agente, você também pode indicar o arquivo diretamente:
+
+> Leia `.agents/skills/engineering-story-refinement/SKILL.md` e conduza o refinamento desta demanda. Temos uma lista de cards de cobrança e queremos decidir qual entrega já seria útil para Contas a Receber.
+
+A skill usa a ficha curta para pedidos e revisões. Se houver dúvida sobre a jornada, ela ajuda a reconstruí-la com o time. Quando a entrega estiver grande, ajuda a escolher uma parte utilizável e definir o aceite. Para pedidos pequenos com escopo claro, pode preencher a ficha diretamente.
+
+A história refinada pode ser entregue ao SDD do time. A própria ficha explica o problema observado, como a solução proposta o resolve e qual ganho se espera para quem vai usá-la. Os critérios de aceite descrevem como verificar o comportamento da entrega.
+
+Quando um acordo entre áreas ou uma exceção importante pode ter ficado só na conversa, a skill prevê uma rodada de [leitura independente antes do SDD](.agents/skills/engineering-story-refinement/references/08-leitura-independente.md). O revisor recebe apenas a ficha. Quem conduziu a entrevista compara as dúvidas com os acordos do time e corrige omissões ou registra a decisão em aberto. Para experimentar, peça “Leia a história de estoque como alguém que vai recebê-la no SDD e indique se duas interpretações mudariam um teste”.
+
+Para avaliar o custo dessa rodada no piloto, compare histórias de complexidade semelhante com e sem leitura independente. Observe tempo e tokens do refinamento até a primeira especificação utilizável, quantos achados mudaram o card e quantas dúvidas o SDD precisou devolver ao engenheiro.
+
+No [ensaio de rastreamento para Atendimento](example/03-rastreamento-para-atendimento.md), a leitura independente revelou duas decisões que mudaram o aceite: quando exibir o rastreio e como agir se o link estiver associado a outra caixa.
+
+### Usar no Codex
 
 Abra este repositório e peça, por exemplo, “Use $engineering-story-refinement para revisar este card com base no relato do cliente. Preserve as decisões confirmadas e destaque o que mudou”. Para usar em outro projeto, copie a [pasta da skill](.agents/skills/engineering-story-refinement/) inteira para a pasta .agents/skills desse projeto.
 
 ## Experimentar o fluxo
 
-### Usar o prompt no GitHub Copilot
+### Opção de prompt independente no GitHub Copilot
 
 Abra o [prompt de refinamento](.github/prompts/refinar-historia.prompt.md), copie o texto a partir de “Refinar uma história de engenharia” para o Copilot Chat e acrescente o pedido ou o card existente. O texto é autocontido e também pode ser usado fora deste repositório. Em uma sessão **Local** do VS Code, com o projeto aberto, o mesmo arquivo pode ser invocado como `/refinar-historia`. A documentação do VS Code descreve a disponibilidade do comando por tipo de sessão. [Prompt files no VS Code](https://code.visualstudio.com/docs/agent-customization/prompt-files)
 
